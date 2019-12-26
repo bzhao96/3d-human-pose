@@ -7,18 +7,18 @@ The project is about 3d human pose estimation. We mainly focus on two parts. One
 ## discriminator as weak supervision
 For this part, we follow the work of [RepNet: Weakly Supervised Training of an Adversarial Reprojection Network
 for 3D Human Pose Estimation](https://arxiv.org/abs/1902.09868). <br>
-Folder *repnet/* is the implementation of this paper. A global normalization step is applied which is different from the origin paper. We find the weight of reprojection loss needs to be increased as the training epoch goes. <br>
+Folder [*repnet*](repnet) is the implementation of this paper. A global normalization step is applied which is different from the origin paper. We find the weight of reprojection loss needs to be increased as the training epoch goes. <br>
 The result Mean Per-Join Position Error(MPJPE) is **76.5mm**(no aligment) and **54.3mm**(after procuste).
 
 ## temporal convolution in videos
 For this part, we follow the work in [3D human pose estimation in video with temporal convolutions and
 semi-supervised training](https://arxiv.org/abs/1811.11742). <br>
-Folder *video_gan_absolute/* is the implementation. The difference is that we use gan as weak supervision. We decouple root joint position and relative pose. Add these two, we can get keypoints position in camera coordinates. The camera intrinsic parameters is given. <br>
+Folder [*video_gan_absolute*](video_gan_absolute) is the implementation. The difference is that we use gan as weak supervision. We decouple root joint position and relative pose. Add these two, we can get keypoints position in camera coordinates. The camera intrinsic parameters is given. <br>
 The result is **70.5mm**(no aligment) and **51.2mm**(after procuste).
 
 ## 2d pose estimation
 We use the framework of [simple baseline from Xiao Bin, etc](https://github.com/microsoft/human-pose-estimation.pytorch) to do 2d pose estimation. We load a pretrained model in MPII given by them. <br>
-The code is in folder *pose_resnet/*. We first use the ground truth bounding box to crop, and resize it to fixed size 384x384.
+The code is in folder [*pose_resnet*](pose_resnet). We first use the ground truth bounding box to crop, and resize it to fixed size 384x384.
 
 ## conclusion
 Although we do not achieve SOTA, we still can get some conclusions. First, the discriminator is powerful enough to replace fully supervised 3d labels. More 3d models can be used to train a more representative discriminator. Second, temporal convolution is benifical to alleviating jittering between frames, and the wrong pose, which is mainly from the self-occlusion in 2d image, can be corrected to some extend. 
