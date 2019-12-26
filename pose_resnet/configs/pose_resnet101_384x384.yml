@@ -1,0 +1,30 @@
+model:
+  num_layers: 101
+  image_size: [384, 384]
+  num_joints: 17
+  deconv_with_bias: false
+  num_deconv_layers: 3
+  num_deconv_filters: [256, 256, 256]
+  num_deconv_kernels: [4, 4, 4]
+  final_conv_kernel: 1
+  heatmap_size: [96, 96]
+  restore: ../saved_model/pose_resnet_101_384x384.tar
+data:
+  input: /home/users/bin.zhao/h36m_data/cropped
+  test_all: /home/users/bin.zhao/h36m_data/test_all_cropped
+  output: /home/users/bin.zhao/project/saved_model
+training:
+  epochs: 8
+  batch_size: 128
+  val_interval: 500
+  print_interval: 50
+  n_workers: 2
+testing:
+  save: True
+seeds: 1333
+
+  
+
+
+
+  
