@@ -4,6 +4,8 @@ The project is about 3d human pose estimation. We mainly focus on two parts. One
 
 <p align="center"><img src="images/demo1.gif" width="100%" alt="" /></p>
 
+![](images/demo1.gif)
+
 ## discriminator as weak supervision
 For this part, we follow the work of [RepNet: Weakly Supervised Training of an Adversarial Reprojection Network
 for 3D Human Pose Estimation](https://arxiv.org/abs/1902.09868). <br>
