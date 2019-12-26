@@ -40,8 +40,8 @@ def main(args):
     model_G = Regression().to(device)
     model_D = Critic().to(device)
     criterion = nn.MSELoss().to(device)
-    optimizer_G = optim.Adam(model_G.parameters(), lr=2e-5, betas=(0.5, 0.9))
-    optimizer_D = optim.Adam(model_D.parameters(), lr=2e-5, betas=(0.5, 0.9))
+    optimizer_G = optim.Adam(model_G.parameters(), lr=1e-4, betas=(0.5, 0.9))
+    optimizer_D = optim.Adam(model_D.parameters(), lr=1e-4, betas=(0.5, 0.9))
     best_error = float('inf')
     iterations = 0
 
@@ -93,7 +93,7 @@ def main(args):
         model_G.zero_grad()
         output_G_fake = model_G(fake)
         pose2d_rep = reprojection(output_G_fake)
-        rep_loss = 25 * 100 * 100 * criterion(pose2d_rep, fake)
+        rep_loss = 100 * 100 * criterion(pose2d_rep, fake)  #increase weight gradually
         camera_error = camera_loss(output_G_fake[:, 48:], device).mean()
         output_fake = -1.0 * model_D(output_G_fake[:, :48]).mean()
         gen_loss = rep_loss + output_fake + camera_error

@@ -1,13 +1,6 @@
 import os
 import numpy as np
 
-# def unnormalize(pose3d, path):
-#     _, scale3d = np.loadtxt(os.path.join(path, 'norm_scale.txt'))
-#     pose3d = pose3d * scale3d
-#     root = np.zeros((pose3d.shape[0], 3))
-#     pose3d = np.hstack((root, pose3d))
-#     return pose3d
-
 def unnormalize(pose3d):
     pose3d = pose3d * 1000
     root = np.zeros((pose3d.shape[0], 3))
