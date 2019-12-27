@@ -2,7 +2,7 @@
 This is the work during my internship at [Horizon Robotics](https://en.horizon.ai/).<br>
 The project is about 3d human pose estimation. We mainly focus on two parts. One is that we want to do it in a weakly supervised manner, more specifically, to learn a discriminator to distinguish valid poses. Another is that using temporal information to deal with jittering problem in generated 3d pose videos.
 
-<p align="center"><img src="images/demo1.gif" width="80%" alt="" /></p>
+<p align="center"><img src="images/demo1.gif" width="100%" alt="" /></p>
 
 ## discriminator as weak supervision
 For this part, we follow the work of [RepNet: Weakly Supervised Training of an Adversarial Reprojection Network
